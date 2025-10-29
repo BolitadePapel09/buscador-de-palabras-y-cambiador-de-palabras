@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Palabras</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buscador y Reemplazador de Palabras</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <style>
-    * {
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
+  }
 
-body {
+  body {
     font-family: "Inter", "Segoe UI", sans-serif;
     background-color: #f5f6fa;
     display: flex;
@@ -22,26 +23,26 @@ body {
     height: 100vh;
     padding: 40px 0;
     color: #222;
-}
+  }
 
-.container {
+  .container {
     background-color: #ffffff;
     width: 90%;
     max-width: 700px;
     padding: 30px;
     border-radius: 10px;
     border: 1px solid #e5e5e5;
-}
+  }
 
-h1 {
+  h1 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 600;
     color: #111;
     margin-bottom: 25px;
-}
+  }
 
-.input-area textarea {
+  .input-area textarea {
     width: 100%;
     height: 160px;
     padding: 12px;
@@ -51,35 +52,41 @@ h1 {
     background-color: #fafafa;
     resize: vertical;
     transition: border-color 0.2s ease;
-}
+  }
 
-.input-area textarea:focus {
+  .input-area textarea:focus {
     outline: none;
     border-color: #0078d7;
     background-color: #fff;
-}
+  }
 
-.search-area {
+  .search-area {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-}
+  }
 
-.search-area input {
+  .search-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .search-row input {
     flex: 1;
     padding: 10px 12px;
     font-size: 15px;
     border: 1px solid #ccc;
     border-radius: 6px;
     transition: border-color 0.2s ease;
-}
+  }
 
-.search-area input:focus {
+  .search-row input:focus {
     outline: none;
     border-color: #0078d7;
-}
+  }
 
-.search-area button {
+  .search-row button {
     background-color: #0078d7;
     color: white;
     border: none;
@@ -88,20 +95,20 @@ h1 {
     cursor: pointer;
     font-weight: 500;
     transition: background-color 0.3s ease;
-}
+  }
 
-.search-area button:hover {
+  .search-row button:hover {
     background-color: #005fa3;
-}
+  }
 
-.contador {
+  .contador {
     text-align: center;
     font-size: 15px;
     margin-top: 15px;
     color: #555;
-}
+  }
 
-.resultado {
+  .resultado {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -111,34 +118,40 @@ h1 {
     white-space: pre-wrap;
     font-size: 15px;
     line-height: 1.5;
-}
+  }
 
-.highlight {
+  .highlight {
     background-color: #ffe680;
     color: #000;
     font-weight: 600;
-}
-
+  }
 </style>
+
 <body>
-    <div class="container">
-        <h1>Buscador de Palabras</h1>
+  <div class="container">
+    <h1>Buscador y Reemplazador de Palabras</h1>
 
-        <div class="input-area">
-            <textarea id="texto" placeholder="Escribe o pega tu texto aquí..."></textarea>
-        </div>
-
-        <div class="search-area">
-            <input type="text" id="busqueda" placeholder="Palabra a buscar...">
-            <button id="btnBuscar">Buscar</button>
-        </div>
-
-        <p class="contador">Coincidencias encontradas: <span id="contador">0</span></p>
-
-        <div id="resultado" class="resultado"></div>
+    <div class="input-area">
+      <textarea id="texto" placeholder="Escribe o pega tu texto aquí..."></textarea>
     </div>
 
+    <div class="search-area">
+      <div class="search-row">
+        <input type="text" id="busqueda" placeholder="Palabra a buscar..." />
+        <button id="btnBuscar">Buscar</button>
+      </div>
 
-    <script src="./bundle.js"></script>  
+      <div class="search-row">
+        <input type="text" id="reemplazo" placeholder="Nueva palabra para reemplazar..." />
+        <button id="btnReemplazar">Reemplazar</button>
+      </div>
+    </div>
+
+    <p class="contador">Coincidencias encontradas: <span id="contador">0</span></p>
+
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <script src="./bundle.js"></script>
 </body>
 </html>
